@@ -9,13 +9,6 @@ using WebApi.Models.Users;
 
 namespace WebApi.Services
 {
-    public interface IUserService
-    {
-        AuthenticateResponse Authenticate(AuthenticateRequest model);
-        User GetById(int id);
-        void Register(RegisterRequest model);
-    }
-
     public class UserService : IUserService
     {
         private DataContext _context;
@@ -63,7 +56,7 @@ namespace WebApi.Services
             // validate
             if (_context.Users.Any(x => x.Username == model.Username))
             {
-                _log.LogError("Username: '"+model.Username+"' is already taken");
+                _log.LogError("Username: '" + model.Username + "' is already taken");
                 throw new AppException("Username '" + model.Username + "' is already taken");
             }
 

@@ -13,6 +13,7 @@ namespace WebApi.Helpers
 
             // RegisterRequest -> User
             CreateMap<RegisterRequest, User>();
+
         }
     }
 }

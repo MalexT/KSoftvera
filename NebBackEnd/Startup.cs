@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using System;
 using WebApi.Authorization;
 using WebApi.Helpers;
@@ -23,8 +24,7 @@ namespace WebApi
 
         // add services to the DI container
         public void ConfigureServices(IServiceCollection services)
-        {                
-
+        {
             services.AddCors();
             services.AddControllers();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
@@ -42,7 +42,6 @@ namespace WebApi
         // configure the HTTP request pipeline
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, DataContext dataContext)
         {
-
             app.UseRouting();
 
             // global cors policy

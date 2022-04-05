@@ -14,11 +14,17 @@ namespace WebApi.Controllers
     public class UsersController : ControllerBase
     {
         private IUserService _userService;
+        private IMapper _mapper;
+        private readonly AppSettings _appSettings;
 
         public UsersController(
-            IUserService userService)
+            IUserService userService,
+            IMapper mapper,
+            IOptions<AppSettings> appSettings)
         {
             _userService = userService;
+            _mapper = mapper;
+            _appSettings = appSettings.Value;
         }
 
         [AllowAnonymous]
@@ -36,6 +42,5 @@ namespace WebApi.Controllers
             _userService.Register(model);
             return Ok(new { message = "Registration successful" });
         }
-
     }
 }

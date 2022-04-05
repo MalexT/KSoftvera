@@ -27,7 +27,7 @@ namespace WebApi.Authorization
 
         public string GenerateToken(User user)
         {
-            // generate token that is valid for 120 seconds
+            // generate token that is valid for 7 days
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(_appSettings.Secret);
             var tokenDescriptor = new SecurityTokenDescriptor
