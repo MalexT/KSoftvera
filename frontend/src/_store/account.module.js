@@ -35,7 +35,6 @@ const actions = {
                     commit('registerSuccess', user);
                     router.push('/login');
                     setTimeout(() => {
-                        // display success message after route change completes
                         dispatch('alert/success', 'Registration successful', { root: true });
                     })
                 },
