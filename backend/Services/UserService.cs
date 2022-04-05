@@ -76,7 +76,7 @@ namespace WebApi.Services
             // save user
             _context.Users.Add(user);
         }
-        // helper methods
+        // helper method
 
         private User getUser(int id)
         {
